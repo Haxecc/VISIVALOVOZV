@@ -1,3 +1,0 @@
-/home/nyx/Documents/VIZIVALOVOZV/build/CMakeFiles/VISIVALOVOZV.dir
-/home/nyx/Documents/VIZIVALOVOZV/build/CMakeFiles/edit_cache.dir
-/home/nyx/Documents/VIZIVALOVOZV/build/CMakeFiles/rebuild_cache.dir

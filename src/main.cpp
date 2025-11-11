@@ -2,18 +2,20 @@
 
 int main(void)
 {
-  unsigned int HEIGHT = 600;
-  unsigned int WIDTH  = 800;
+  unsigned int HEIGHT = 1080;
+  unsigned int WIDTH  = 1920;
   
-  sf::RenderWindow window(sf::VideoMode({WIDTH, HEIGHT}), "VIZIVALOVOZV", sf::Style::None, sf::State::Windowed); // 4-th argument will be sf::State::Fullscreen
+  sf::RenderWindow window(sf::VideoMode({WIDTH, HEIGHT}), "VIZIVALOVOZV", sf::Style::Default, sf::State::Windowed);
   window.setFramerateLimit(60);
 
-  float HERO_H = 100.f;
-  float HERO_W = 100.f;
+  int HERO_H = 100;
+  int HERO_W = 100;
   float speed = 10.f;
 
-  sf::RectangleShape hero({100.f, 100.f});
-  hero.setFillColor(sf::Color::Green);
+  sf::Texture texture("images/jojo.png");
+  sf::Sprite hero(texture);
+  hero.setTextureRect(sf::IntRect({0, 0}, {HERO_W, HERO_H}));
+  hero.setPosition({860, 440});
 
   const auto onClose = [&window](const sf::Event::Closed&)
   {
@@ -74,5 +76,3 @@ int main(void)
 
   return 0;
 }
-
-

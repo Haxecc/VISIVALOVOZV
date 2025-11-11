@@ -1,1 +1,3 @@
-VISIVALOVOZV
+.vscode/
+!build/images/jojo,png
+build/*

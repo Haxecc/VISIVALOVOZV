@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/VISIVALOVOZV.dir/link.d CMakeFiles/VISIVALOVOZV.dir/src/main.cpp.o -o VISIVALOVOZV  -lsfml-graphics -lsfml-window -lsfml-system
