@@ -8,14 +8,12 @@ int main(void)
   sf::RenderWindow window(sf::VideoMode({WIDTH, HEIGHT}), "VISIVALOVOZV", sf::Style::Default, sf::State::Windowed);
   window.setFramerateLimit(60);
 
-  int HERO_H = 100;
-  int HERO_W = 100;
   float speed = 10.f;
 
   sf::Texture texture("images/jojo.png");
-  sf::Sprite hero(texture);
-  hero.setTextureRect(sf::IntRect({0, 0}, {HERO_W, HERO_H}));
-  hero.setPosition({WIDTH/2, HEIGHT/2});
+  Hero hero(&window, &texture);
+  hero.spr.setTextureRect(sf::IntRect({0, 0}, hero.get_position()));
+  hero.spr.setPosition({WIDTH/2, HEIGHT/2});
 
   const auto onClose = [&window](const sf::Event::Closed&)
   {
@@ -29,48 +27,14 @@ int main(void)
     
   };
 
-  const auto isKeyDown = [&hero, &speed, &HERO_H, &HERO_W, &HEIGHT, &WIDTH]()
-  {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::D))
-    {
-      if (hero.getPosition().x < WIDTH-HERO_W)
-      {
-        hero.move({speed, 0});
-      }
-    }
-
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::A))
-    {
-      if (hero.getPosition().x > 0)
-      {
-        hero.move({-speed, 0});
-      }
-    }
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::W))
-    {
-      if (hero.getPosition().y > 0)
-      {
-        hero.move({0, -speed});
-      }
-    }
-
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Scancode::S))
-    {
-      if (hero.getPosition().y < HEIGHT-HERO_H)
-      {
-        hero.move({0, speed});
-      }
-    }
-  };
-
   while (window.isOpen())
   {
     window.handleEvents(onClose, onKeyPressed); 
-    isKeyDown();
+
+    hero.keyboard_controls();
 
     window.clear();
-    window.draw(hero);
+    window.draw(hero.spr);
     window.display();
   }
 

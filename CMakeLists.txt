@@ -8,6 +8,8 @@ find_package(SFML 3.0.2 COMPONENTS Graphics Window System REQUIRED)
 
 add_executable(${PROJECT_NAME}
     src/main.cpp
+    src/entities.cpp
+    src/engine.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} 

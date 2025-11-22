@@ -1,0 +1,27 @@
+[ 25%] Building CXX object CMakeFiles/VISIVALOVOZV.dir/src/main.cpp.o
+/home/nyx/Documents/VIZIVALOVOZV/src/main.cpp: In function ‘int main()’:
+/home/nyx/Documents/VIZIVALOVOZV/src/main.cpp:14:30: error: no matching function for call to ‘Hero::Hero(sf::RenderWindow*, sf::Texture*)’
+   14 |   Hero hero(&window, &texture);
+      |                              ^
+/home/nyx/Documents/VIZIVALOVOZV/src/main.cpp:14:30: note: there are 2 candidates
+In file included from /home/nyx/Documents/VIZIVALOVOZV/src/engine.hpp:6,
+                 from /home/nyx/Documents/VIZIVALOVOZV/src/main.cpp:1:
+/home/nyx/Documents/VIZIVALOVOZV/src/entities.hpp:34:3: note: candidate 1: ‘Hero::Hero(sf::RenderWindow&, sf::Texture&, int, int, int, int, int, int, int)’
+   34 |   Hero(sf::RenderWindow& win_, sf::Texture& texture_, int hp_=100, int damage_=10, int x_=0, int y_=0, int width_=100, int height_=100, int speed_=10);
+      |   ^~~~
+/home/nyx/Documents/VIZIVALOVOZV/src/entities.hpp:34:26: note: no known conversion for argument 1 from ‘sf::RenderWindow*’ to ‘sf::RenderWindow&’
+   34 |   Hero(sf::RenderWindow& win_, sf::Texture& texture_, int hp_=100, int damage_=10, int x_=0, int y_=0, int width_=100, int height_=100, int speed_=10);
+      |        ~~~~~~~~~~~~~~~~~~^~~~
+/home/nyx/Documents/VIZIVALOVOZV/src/entities.hpp:31:7: note: candidate 2: ‘Hero::Hero(Hero&&)’
+   31 | class Hero : public Entity
+      |       ^~~~
+/home/nyx/Documents/VIZIVALOVOZV/src/entities.hpp:31:7: note: candidate expects 1 argument, 2 provided
+/home/nyx/Documents/VIZIVALOVOZV/src/main.cpp:16:30: warning: narrowing conversion of ‘(WIDTH / 2)’ from ‘unsigned int’ to ‘float’ [-Wnarrowing]
+   16 |   hero.spr.setPosition({WIDTH/2, HEIGHT/2});
+      |                         ~~~~~^~
+/home/nyx/Documents/VIZIVALOVOZV/src/main.cpp:16:40: warning: narrowing conversion of ‘(HEIGHT / 2)’ from ‘unsigned int’ to ‘float’ [-Wnarrowing]
+   16 |   hero.spr.setPosition({WIDTH/2, HEIGHT/2});
+      |                                  ~~~~~~^~
+make[2]: *** [CMakeFiles/VISIVALOVOZV.dir/build.make:79: CMakeFiles/VISIVALOVOZV.dir/src/main.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:87: CMakeFiles/VISIVALOVOZV.dir/all] Error 2
+make: *** [Makefile:91: all] Error 2
